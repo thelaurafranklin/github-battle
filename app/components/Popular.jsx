@@ -1,4 +1,21 @@
 import * as React from 'react';
+import { render } from 'react-dom';
+
+function LanguagesNav({ selected, onUpdateLanguage }) {
+  const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+  return (
+    <select
+      onChange={(e) => onUpdateLanguage(e.target.value)}
+      selected={selected}
+    >
+      {languages.map((language) => (
+        <option key={language} value={language}>
+          {language}
+        </option>
+      ))}
+    </select>
+  );
+}
 
 export default class Popular extends React.Component {
   constructor(props) {
@@ -16,19 +33,13 @@ export default class Popular extends React.Component {
   }
 
   render() {
-    const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+    const { selectedLanguage } = this.state;
     return (
       <main>
-        <select
-          onChange={(e) => this.updateLanguage(e.target.value)}
-          selected={this.state.selectedLanguage}
-        >
-          {languages.map((language) => (
-            <option key={language} value={language}>
-              {language}
-            </option>
-          ))}
-        </select>
+        <LanguagesNav
+          selected={selectedLanguage}
+          onUpdateLanguage={this.updateLanguage}
+        />
         {JSON.stringify(this.state, null, 2)}
       </main>
     );
