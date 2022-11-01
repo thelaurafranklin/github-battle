@@ -80,12 +80,12 @@ function getUserData(player) {
 }
 
 function sortPlayers(players) {
-  return players.sort((a,b) => b.score - a.score)
+  return players.sort((a, b) => b.score - a.score)
 }
 
 export function battle(players) {
   return Promise.all([
     getUserData(players[0]),
     getUserData(players[1])
-  ]).then(sortPlayers(players))
+  ]).then(sortPlayers)
 }
