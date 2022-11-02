@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { render } from 'react-dom';
 import PropTypes from 'prop-types';
 import { fetchPopularRepos } from '../utils/api';
 import Table from './Table';
@@ -58,7 +57,7 @@ export default class Popular extends React.Component {
         console.warn('Error fetching repos: ', error);
 
         this.setState({
-          error: 'There was an error fetching the repositories',
+          error: `There was an error fetching the repositories`,
         });
       });
   }
@@ -67,7 +66,7 @@ export default class Popular extends React.Component {
     const { selectedLanguage, repos, error } = this.state;
     return (
       <main className="stack main-stack animate-in">
-        <div>
+        <div className="split">
           <h1>Popular</h1>
           <LanguagesNav
             selected={selectedLanguage}

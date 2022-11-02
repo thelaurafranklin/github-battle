@@ -131,7 +131,7 @@ export default class Results extends React.Component {
             <Card profile={loser.profile} />
             <p className="results">
               <span>
-                {winner.score === loser.score ? 'Tie' : 'Loser'}{' '}
+                {winner.score === loser.score ? 'Tie' : 'Loser'}
                 {loser.score.toLocaleString()}
               </span>
             </p>
